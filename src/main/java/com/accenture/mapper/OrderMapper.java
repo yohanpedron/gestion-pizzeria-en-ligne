@@ -4,7 +4,7 @@ import com.accenture.model.Order;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface Ordermapper {
+public interface OrderMapper {
 
     Order toOrderDto(OrderRequestDto orderRequestDto);
 
