@@ -40,7 +40,7 @@ public class SwaggerConfig {
                         .addParameters(ACCEPT_LANGUAGE_PARAM_KEY, acceptLanguage))
                 .addSecurityItem(new SecurityRequirement().addList(SCHEME_NAME))
                 .info(new Info()
-                        .title("API for Hunger Game Software")
+                        .title("API for Gestion Pizzeria Software")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .name("Accenture")
