@@ -1,6 +1,8 @@
 package com.accenture.mapper;
 
 import com.accenture.model.Order;
+import com.accenture.service.dto.OrderRequestDto;
+import com.accenture.service.dto.OrderResponseDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
