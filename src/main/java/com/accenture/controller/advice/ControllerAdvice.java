@@ -1,7 +1,5 @@
 package com.accenture.controller.advice;
 
-import com.accenture.exception.DistrictException;
-import com.accenture.exception.EventException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
