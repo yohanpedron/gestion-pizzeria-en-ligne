@@ -26,6 +26,7 @@ public class Client {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private List<Order> orders;
+
     private boolean vip;
 
     public Client(String name, String mail, List<Order> orders, boolean vip) {
