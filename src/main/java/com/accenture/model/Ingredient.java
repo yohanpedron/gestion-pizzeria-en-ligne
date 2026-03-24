@@ -21,5 +21,5 @@ public class Ingredient {
     private UUID id;
 
     private String name;
-    private Integer stock;
+    private int stock;
 }
