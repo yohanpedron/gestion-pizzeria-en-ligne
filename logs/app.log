@@ -1,0 +1,322 @@
+2026-03-24T12:28:55.597+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.2 with PID 4472 (C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes started by marion.bialgues in C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne)
+2026-03-24T12:28:55.597+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-24T12:28:56.050+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-24T12:28:56.056+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2026-03-24T12:28:56.233+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-24T12:28:56.236+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-24T12:28:56.237+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-24T12:28:56.323+01:00  INFO 4472 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 722 ms
+2026-03-24T12:28:56.403+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-24T12:28:56.482+01:00  INFO 4472 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-24T12:28:56.486+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-03-24T12:28:56.866+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@9b057b7
+2026-03-24T12:28:56.867+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-03-24T12:28:56.926+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-24T12:28:56.943+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-24T12:28:57.059+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-24T12:28:57.061+01:00  INFO 4472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T12:28:57.131+01:00  WARN 4472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-24T12:28:57.382+01:00  WARN 4472 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0b5e3e35-93bf-48a3-9790-1f81a259f823
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-24T12:28:57.416+01:00  INFO 4472 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-24T12:28:57.547+01:00  INFO 4472 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-24T12:28:57.598+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-24T12:28:57.605+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 2.129 seconds (process running for 9496.532)
+2026-03-24T12:28:57.613+01:00  INFO 4472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   MessageSourceAutoConfiguration matched:
+      - ResourceBundle found bundle file [C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes\messages.properties] (MessageSourceAutoConfiguration.ResourceBundleCondition)
+      - @ConditionalOnMissingBean (names: messageSource; SearchStrategy: current) did not find any beans (OnBeanCondition)
+
+   ServletWebSecurityAutoConfiguration.EnableWebSecurityConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   ServletWebSecurityAutoConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'spring.security.user.password'; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'spring.security.user.name'; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured)
+      - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2026-03-24T12:29:12.876+01:00  INFO 4472 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 45 class path changes (45 additions, 0 deletions, 0 modifications)
+2026-03-24T12:29:12.878+01:00  INFO 4472 --- [Thread-5] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-24T12:29:12.885+01:00  INFO 4472 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-24T12:29:12.889+01:00  INFO 4472 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T12:29:12.890+01:00  INFO 4472 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-03-24T12:29:12.897+01:00  INFO 4472 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-03-24T12:29:13.003+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.2 with PID 4472 (C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes started by marion.bialgues in C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne)
+2026-03-24T12:29:13.004+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-24T12:29:14.333+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-24T12:29:14.349+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+2026-03-24T12:29:14.438+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-24T12:29:14.439+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-24T12:29:14.439+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-24T12:29:14.474+01:00  INFO 4472 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1468 ms
+2026-03-24T12:29:14.520+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-24T12:29:14.542+01:00  INFO 4472 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-24T12:29:14.544+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-03-24T12:29:14.570+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@262ce97c
+2026-03-24T12:29:14.570+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-03-24T12:29:14.573+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-24T12:29:14.577+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-24T12:29:14.695+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-24T12:29:14.762+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists ingredient 
+       add column ingredients_id uuid
+2026-03-24T12:29:14.777+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    create table order_row_description (
+        id uuid not null,
+        ingredient_amount integer not null,
+        size smallint check ((size between 0 and 2)),
+        pizza_id uuid,
+        order_rows_description_id uuid,
+        primary key (id)
+    )
+2026-03-24T12:29:14.800+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    create table orders (
+        id uuid not null,
+        date timestamp(6),
+        status smallint check ((status between 0 and 3)),
+        total_order float(53) not null,
+        client_id uuid,
+        orders_id uuid,
+        primary key (id)
+    )
+2026-03-24T12:29:14.805+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists UKt42i50v40jera0kve6ff7xvr9
+2026-03-24T12:29:14.810+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-24T12:29:14.810+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.jdbc.warn              : constraint "ukt42i50v40jera0kve6ff7xvr9" of relation "order_row_description" does not exist, skipping
+2026-03-24T12:29:14.811+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint UKt42i50v40jera0kve6ff7xvr9 unique (pizza_id)
+2026-03-24T12:29:14.840+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists ingredient 
+       add constraint FKpbr9m7qojx1d0vj7950juykuk 
+       foreign key (ingredients_id) 
+       references pizza
+2026-03-24T12:29:14.845+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FK6pegnpt5v5wpj6ylffprmoti9 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-24T12:29:14.850+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FKokujq7ea93dh3nr3ulfk5pk97 
+       foreign key (order_rows_description_id) 
+       references orders
+2026-03-24T12:29:14.855+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FK17yo6gry2nuwg2erwhbaxqbs9 
+       foreign key (client_id) 
+       references client
+2026-03-24T12:29:14.860+01:00 DEBUG 4472 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FKid41i0xx42ffsla3xd1ify6tr 
+       foreign key (orders_id) 
+       references client
+2026-03-24T12:29:14.866+01:00  INFO 4472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T12:29:15.041+01:00  WARN 4472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-24T12:29:15.258+01:00  INFO 4472 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-24T12:29:15.415+01:00  INFO 4472 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-24T12:29:15.432+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-24T12:29:15.434+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 2.454 seconds (process running for 9514.361)
+2026-03-24T12:29:15.435+01:00  INFO 4472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   ServletWebSecurityAutoConfiguration.EnableWebSecurityConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   ServletWebSecurityAutoConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' inMemoryUserDetailsManager (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+         - AnyNestedCondition 1 matched 2 did not; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'spring.security.user.password'; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'spring.security.user.name'; NestedCondition on MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (MissingAlternativeUserDetailsManagerOrUserPropertiesConfigured)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2026-03-24T13:25:04.767+01:00  WARN 4472 --- [HikariPool-3:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=53m20s91ms368µs).
+2026-03-24T13:27:18.387+01:00  INFO 4472 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2026-03-24T13:27:18.438+01:00  INFO 4472 --- [Thread-10] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-24T13:27:18.462+01:00  INFO 4472 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-24T13:27:18.492+01:00  INFO 4472 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T13:27:18.506+01:00  INFO 4472 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-03-24T13:27:18.515+01:00  INFO 4472 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-03-24T13:27:18.992+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.2 with PID 4472 (C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes started by marion.bialgues in C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne)
+2026-03-24T13:27:18.993+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-24T13:27:19.772+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-24T13:27:19.794+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2026-03-24T13:27:19.993+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-24T13:27:19.996+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-24T13:27:19.996+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-24T13:27:20.058+01:00  INFO 4472 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1061 ms
+2026-03-24T13:27:20.185+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-24T13:27:20.234+01:00  INFO 4472 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-24T13:27:20.237+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-03-24T13:27:20.276+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@323a3aa1
+2026-03-24T13:27:20.277+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-03-24T13:27:20.322+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-24T13:27:20.333+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-24T13:27:20.488+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-24T13:27:20.550+01:00  INFO 4472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T13:27:20.676+01:00  WARN 4472 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pizzaController' defined in file [C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes\com\accenture\controller\Impl\PizzaController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.accenture.service.PizzaService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-03-24T13:27:20.677+01:00  INFO 4472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T13:27:20.678+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-03-24T13:27:20.721+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-03-24T13:27:20.722+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-24T13:27:20.729+01:00  INFO 4472 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-24T13:27:20.773+01:00 ERROR 4472 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.accenture.controller.Impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.accenture.service.PizzaService' in your configuration.
+
+2026-03-24T13:27:35.464+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.2 with PID 4472 (C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne\target\classes started by marion.bialgues in C:\Users\marion.bialgues\Desktop\Cours Academie\12 - Projet en binôme\gestion-pizzeria-en-ligne)
+2026-03-24T13:27:35.465+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-24T13:27:35.912+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-24T13:27:35.944+01:00  INFO 4472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
+2026-03-24T13:27:36.218+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-24T13:27:36.221+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-24T13:27:36.221+01:00  INFO 4472 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-24T13:27:36.321+01:00  INFO 4472 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 854 ms
+2026-03-24T13:27:36.465+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-24T13:27:36.535+01:00  INFO 4472 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-24T13:27:36.537+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-03-24T13:27:36.605+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@669d8323
+2026-03-24T13:27:36.605+01:00  INFO 4472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-03-24T13:27:36.613+01:00  WARN 4472 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-24T13:27:36.626+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-24T13:27:36.860+01:00  INFO 4472 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-24T13:27:36.933+01:00  INFO 4472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T13:27:37.332+01:00  WARN 4472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-24T13:27:37.824+01:00  INFO 4472 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-24T13:27:38.381+01:00  INFO 4472 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-24T13:27:38.446+01:00  INFO 4472 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-24T13:27:38.452+01:00  INFO 4472 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 3.027 seconds (process running for 13017.38)
+2026-03-24T13:27:38.458+01:00  INFO 4472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

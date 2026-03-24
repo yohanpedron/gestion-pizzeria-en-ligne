@@ -9,7 +9,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface PizzaMapper {
 
-    Pizza toPizzaDto(PizzaRequestDto pizzaRequestDto);
+    Pizza toPizza(PizzaRequestDto pizzaRequestDto);
 
     PizzaResponseDto toPizzaResponseDto(Pizza pizza);
 }
