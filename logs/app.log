@@ -1,0 +1,128 @@
+2026-03-25T09:37:44.423+01:00  INFO 20584 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.1 with PID 20584 (C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne\target\classes started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-25T09:37:44.444+01:00  INFO 20584 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T09:37:44.544+01:00  INFO 20584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-25T09:37:44.544+01:00  INFO 20584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-25T09:37:46.612+01:00  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-25T09:37:46.697+01:00  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 3 JPA repository interfaces.
+2026-03-25T09:37:47.526+01:00  INFO 20584 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-25T09:37:47.543+01:00  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-25T09:37:47.543+01:00  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-25T09:37:47.626+01:00  INFO 20584 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3080 ms
+2026-03-25T09:37:47.864+01:00  INFO 20584 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-25T09:37:47.960+01:00  INFO 20584 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-25T09:37:48.551+01:00  INFO 20584 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-25T09:37:48.597+01:00  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-25T09:37:48.815+01:00  INFO 20584 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d2e2ae9
+2026-03-25T09:37:48.818+01:00  INFO 20584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-25T09:37:48.862+01:00  WARN 20584 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-25T09:37:48.887+01:00  INFO 20584 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-25T09:37:50.367+01:00  INFO 20584 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-25T09:37:50.429+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table client (
+        id uuid not null,
+        mail varchar(255),
+        name varchar(255),
+        vip boolean not null,
+        primary key (id)
+    )
+2026-03-25T09:37:50.443+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table ingredient (
+        id uuid not null,
+        name varchar(255),
+        stock integer not null,
+        ingredients_id uuid,
+        primary key (id)
+    )
+2026-03-25T09:37:50.450+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table order_row_description (
+        id uuid not null,
+        ingredient_amount integer not null,
+        size smallint check ((size between 0 and 2)),
+        pizza_id uuid,
+        order_rows_description_id uuid,
+        primary key (id)
+    )
+2026-03-25T09:37:50.455+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table orders (
+        id uuid not null,
+        date timestamp(6),
+        status smallint check ((status between 0 and 3)),
+        total_order float(53) not null,
+        client_id uuid,
+        orders_id uuid,
+        primary key (id)
+    )
+2026-03-25T09:37:50.459+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table pizza (
+        id uuid not null,
+        active boolean not null,
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-25T09:37:50.463+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    create table pizza_price (
+        pizza_id uuid not null,
+        price float(53),
+        size smallint not null check ((size between 0 and 2)),
+        primary key (pizza_id, size)
+    )
+2026-03-25T09:37:50.469+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists UKt42i50v40jera0kve6ff7xvr9
+2026-03-25T09:37:50.474+01:00  WARN 20584 --- [restartedMain] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-25T09:37:50.474+01:00  WARN 20584 --- [restartedMain] org.hibernate.orm.jdbc.warn              : constraint "ukt42i50v40jera0kve6ff7xvr9" of relation "order_row_description" does not exist, skipping
+2026-03-25T09:37:50.474+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint UKt42i50v40jera0kve6ff7xvr9 unique (pizza_id)
+2026-03-25T09:37:50.479+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists ingredient 
+       add constraint FKpbr9m7qojx1d0vj7950juykuk 
+       foreign key (ingredients_id) 
+       references pizza
+2026-03-25T09:37:50.485+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FK6pegnpt5v5wpj6ylffprmoti9 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-25T09:37:50.488+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FKokujq7ea93dh3nr3ulfk5pk97 
+       foreign key (order_rows_description_id) 
+       references orders
+2026-03-25T09:37:50.492+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FK17yo6gry2nuwg2erwhbaxqbs9 
+       foreign key (client_id) 
+       references client
+2026-03-25T09:37:50.496+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FKid41i0xx42ffsla3xd1ify6tr 
+       foreign key (orders_id) 
+       references client
+2026-03-25T09:37:50.499+01:00 DEBUG 20584 --- [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pizza_price 
+       add constraint FKav0kwwop5rujt3q8i2qmcbhid 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-25T09:37:50.504+01:00  INFO 20584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T09:37:50.626+01:00  INFO 20584 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-25T09:37:50.968+01:00  WARN 20584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-25T09:37:51.253+01:00  INFO 20584 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-25T09:37:51.851+01:00  INFO 20584 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-25T09:37:51.910+01:00  INFO 20584 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-25T09:37:51.917+01:00  INFO 20584 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 8.42 seconds (process running for 9.831)
+2026-03-25T09:37:58.568+01:00  INFO 20584 --- [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-25T09:37:58.569+01:00  INFO 20584 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-25T09:37:58.570+01:00  INFO 20584 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-25T09:38:00.682+01:00  INFO 20584 --- [http-nio-9999-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 552 ms
