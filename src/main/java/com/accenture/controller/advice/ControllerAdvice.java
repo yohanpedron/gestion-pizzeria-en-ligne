@@ -1,5 +1,6 @@
 package com.accenture.controller.advice;
 
+import com.accenture.exception.ClientException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -28,7 +29,7 @@ public class ControllerAdvice {
      * Appelée quand une exception métier survient.
      * Renvoie un 400 BAD_REQUEST avec le message métier.
      */
-    @ExceptionHandler({})
+    @ExceptionHandler({ClientException.class})
     public ResponseEntity<ErrorDto> businessException(Exception e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDto(
                 java.time.LocalDateTime.now(),
