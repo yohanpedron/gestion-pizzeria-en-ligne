@@ -16,7 +16,8 @@ public record PizzaRequestDto(
         Map<PizzaSize, Double> price,
 
         @NotEmpty
-        List<IngredientRequestDto> ingredients,
+        List<IngredientRequestDto> ingredients
 
-        boolean active)
+        //boolean active
+)
 {}

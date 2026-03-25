@@ -4,6 +4,7 @@ import com.accenture.model.Pizza;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface PizzaDao extends JpaRepository<Pizza, UUID> {
@@ -13,5 +14,9 @@ public interface PizzaDao extends JpaRepository<Pizza, UUID> {
 
     List<Pizza> findByNameContainingIgnoreCase(String name);
     List<Pizza> findByIngredientsNameContainingIgnoreCase(String ingredientName);
+
+    //vérification de l'éxistance de la pizza avant suppression
+    Optional<Pizza> findByNameIgnoreCase(String name);
+
 
 }

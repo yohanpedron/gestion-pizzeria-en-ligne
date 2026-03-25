@@ -28,7 +28,6 @@ public class Pizza {
 
     @ElementCollection
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
     private List<Ingredient> ingredients;
 
     private boolean active;
