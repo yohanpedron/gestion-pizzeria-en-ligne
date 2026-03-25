@@ -19,4 +19,8 @@ public interface PizzaService {
     PizzaResponseDto putPizza(UUID districtId, PizzaRequestDto requestDto);
 
     PizzaResponseDto patchPizza(UUID districtId, PizzaRequestDto requestDto);
+
+    List<PizzaResponseDto> findByName(String name);
+
+    List<PizzaResponseDto> findByIngredient(String ingredient);
 }

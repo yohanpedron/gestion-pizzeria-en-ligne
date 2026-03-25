@@ -26,6 +26,7 @@ public class Pizza {
     @Column(name = "price")
     private Map<PizzaSize, Double> price;
 
+    @ElementCollection
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private List<Ingredient> ingredients;

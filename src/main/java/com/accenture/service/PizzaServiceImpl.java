@@ -32,17 +32,22 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public void deletePizza(UUID id) throws PizzaException {
-
+        Pizza pizza = pizzaDao.getReferenceById(id);
+        pizzaDao.delete(pizza);
     }
 
     @Override
     public List<PizzaResponseDto> findAll() {
-        return List.of();
+        return pizzaDao.findAll()
+                .stream()
+                .map(pizzaMapper::toPizzaResponseDto)
+                .toList();
     }
 
     @Override
     public PizzaResponseDto findById(UUID id) {
-        return null;
+        Pizza pizza = pizzaDao.getReferenceById(id);
+        return pizzaMapper.toPizzaResponseDto(pizza);
     }
 
     @Override
@@ -54,4 +59,21 @@ public class PizzaServiceImpl implements PizzaService {
     public PizzaResponseDto patchPizza(UUID districtId, PizzaRequestDto requestDto) {
         return null;
     }
+
+    @Override
+    public List<PizzaResponseDto> findByName(String name) {
+        return pizzaDao.findByNameContainingIgnoreCase(name)
+                .stream()
+                .map(pizzaMapper::toPizzaResponseDto)
+                .toList();
+    }
+
+    @Override
+    public List<PizzaResponseDto> findByIngredient(String ingredient) {
+        return pizzaDao.findByIngredientsNameContainingIgnoreCase(ingredient)
+                .stream()
+                .map(pizzaMapper::toPizzaResponseDto)
+                .toList();
+    }
+
 }
