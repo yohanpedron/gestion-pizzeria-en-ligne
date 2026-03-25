@@ -6,7 +6,6 @@ import com.accenture.service.dto.PizzaRequestDto;
 import com.accenture.service.dto.PizzaResponseDto;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface PizzaService {
 
@@ -15,9 +14,6 @@ public interface PizzaService {
     void deletePizza(String name);
 
     List<PizzaResponseDto> findAll();
-    PizzaResponseDto findById(UUID id);
-
-    PizzaResponseDto putPizza(UUID districtId, PizzaRequestDto requestDto);
 
     PizzaResponseDto patchPizza(String name, PizzaPatchRequestDto request);
 

@@ -10,12 +10,10 @@ import com.accenture.service.dto.PizzaResponseDto;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -24,7 +22,6 @@ public class PizzaServiceImpl implements PizzaService {
 
     private final PizzaDao pizzaDao;
     private final PizzaMapper pizzaMapper;
-    private final MessageSourceAccessor messages;
 
     @Override
     public PizzaResponseDto addPizza(PizzaRequestDto request) {
@@ -37,6 +34,9 @@ public class PizzaServiceImpl implements PizzaService {
             throw new IllegalArgumentException("Pizza must contain at least one ingredient");}
         if (pizzaDao.findByNameIgnoreCase(request.name()).isPresent()) {
             throw new EntityExistsException("Pizza with this name already exists");}
+        if (request.price().values().stream().anyMatch(p -> p <= 0)) {
+            throw new IllegalArgumentException("Price must be positive");
+        }
 
         Pizza pizza = pizzaMapper.toPizza(request);
         Pizza saved = pizzaDao.save(pizza);
@@ -62,17 +62,6 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public PizzaResponseDto findById(UUID id) {
-        Pizza pizza = pizzaDao.getReferenceById(id);
-        return pizzaMapper.toPizzaResponseDto(pizza);
-    }
-
-    @Override
-    public PizzaResponseDto putPizza(UUID districtId, PizzaRequestDto requestDto) {
-        return null;
-    }
-
-    @Override
     public PizzaResponseDto patchPizza(String name, PizzaPatchRequestDto request) {
 
         Pizza pizza = pizzaDao.findByNameIgnoreCase(name)
@@ -93,10 +82,6 @@ public class PizzaServiceImpl implements PizzaService {
                     .toList();
             pizza.setIngredients(ingredients);
         }
-
-//        if (request.active() != null) {
-//            pizza.setActive(request.active());
-//        }
 
         Pizza saved = pizzaDao.save(pizza);
         return pizzaMapper.toPizzaResponseDto(saved);

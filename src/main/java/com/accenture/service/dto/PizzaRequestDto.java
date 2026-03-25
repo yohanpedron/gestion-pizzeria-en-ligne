@@ -1,7 +1,6 @@
 package com.accenture.service.dto;
 
 import com.accenture.model.PizzaSize;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
