@@ -18,7 +18,6 @@ public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String name;
 
     @ElementCollection
@@ -27,6 +26,7 @@ public class Pizza {
     @Column(name = "price")
     private Map<PizzaSize, Double> price;
 
+    @ElementCollection
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private List<Ingredient> ingredients;

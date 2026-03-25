@@ -22,4 +22,9 @@ public class Ingredient {
 
     private String name;
     private int stock;
+
+    public Ingredient(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
+    }
 }

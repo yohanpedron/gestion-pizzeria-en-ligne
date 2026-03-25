@@ -1,4 +1,15 @@
 package com.accenture.service.dto;
 
-public record PizzaResponseDto() {
-}
+import com.accenture.model.PizzaSize;
+
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+public record PizzaResponseDto(
+        UUID id,
+        String name,
+        Map<PizzaSize, Double> price,
+        List<IngredientResponseDto> ingredients,
+        boolean active
+) {}
