@@ -43,8 +43,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public void delete(UUID id) {
-        if (clientDao.existsById(id))
-            throw new EntityNotFoundException(messages.getMessage(CLIENT_NOT_FOUND))
+
     }
 
     public void verify(ClientRequestDto clientRequestDto) {

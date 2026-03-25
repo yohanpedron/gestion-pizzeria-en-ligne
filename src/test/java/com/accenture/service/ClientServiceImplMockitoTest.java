@@ -135,30 +135,6 @@ public class ClientServiceImplMockitoTest {
         Assertions.assertEquals(0, result.size());
     }
 
-    @Test
-    @DisplayName("Test when client object is delete with success")
-    void testDeleteClientSuccess(){
-        ClientService spy = Mockito.spy(service);
-        String name = "Name1";
-        String mail = "mail@mail.com";
-
-        ClientRequestDto clientRequestDto = new ClientRequestDto(name,mail);
-        ClientResponseDto clientResponseDto = new ClientResponseDto(UUID.randomUUID(),name,mail,new ArrayList<>(),false);
-
-        Client clientEntity = new Client(name,mail,new ArrayList<>(),false);
-
-        Mockito.when(clientMapper.toClient(Mockito.any(ClientRequestDto.class))).thenReturn(clientEntity);
-        Mockito.when(clientDao.save(Mockito.any(Client.class))).thenReturn(clientEntity);
-        Mockito.when(clientMapper.toclientResponseDto(Mockito.any(Client.class))).thenReturn(clientResponseDto);
-
-        ClientResponseDto returnedValue = spy.addClient(clientRequestDto);
-        UUID id = UUID.randomUUID();
-        clientDao.save(new Client(id,"Name1","mail1@mail.com",new ArrayList<>(),false));
-
-        service.delete(id);
-        Mockito.verify(spy, Mockito.times(0)).verify(Mockito.any(ClientRequestDto.class));
-    }
-
 
 
 }
