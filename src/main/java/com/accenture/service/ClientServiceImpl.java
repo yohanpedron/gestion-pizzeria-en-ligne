@@ -13,9 +13,7 @@ import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Pattern;
 
 @Service
@@ -32,18 +30,36 @@ public class ClientServiceImpl implements ClientService{
     public ClientResponseDto addClient(ClientRequestDto clientRequestDto) throws ClientException{
         verify(clientRequestDto);
         Client saved = clientDao.save(clientMapper.toClient(clientRequestDto));
-        return clientMapper.toclientResponseDto(saved);
+        return clientMapper.toClientResponseDto(saved);
     }
 
     @Override
-    public List<Client> findAllClients() {
+    public List<ClientResponseDto> findAllClients() {
         List<Client> clients = clientDao.findAll();
-        return clients.stream().toList();
+        return clients.stream().map(clientMapper::toClientResponseDto).toList();
     }
 
     @Override
-    public void delete(UUID id) {
+    public void deleteClient(UUID id) {
 
+    }
+
+    @Override
+    public ClientResponseDto findByMail(String mail) throws EntityNotFoundException {
+        Optional<Client> optionalClient = clientDao.findByClientMail(mail);
+        Client client = optionalClient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.CLIENT_MAIL_NOTFOUND)));
+        return clientMapper.toClientResponseDto(client);
+    }
+
+    @Override
+    public ClientResponseDto patchByMail(String mail, String newName) {
+        Optional<Client> optionalClient = clientDao.findByClientMail(mail);
+        Client client = optionalClient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.CLIENT_MAIL_NOTFOUND)));
+        if (newName != null && !newName.isBlank()){
+            client.setName(newName);
+        }
+        Client saved = clientDao.save(client);
+        return clientMapper.toClientResponseDto(saved);
     }
 
     public void verify(ClientRequestDto clientRequestDto) {
@@ -55,13 +71,7 @@ public class ClientServiceImpl implements ClientService{
             throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_NULLORBLANK));
         if (!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",clientRequestDto.mail()))
             throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_WRONGFORMAT));
-        for(int compteur = 0;compteur < findAllClients().size();compteur++) {
-            if (findAllClients().get(compteur).getMail().equals(clientRequestDto.mail()))
-                throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_ALREADYEXIST));
+        if (clientDao.findByClientMail(clientRequestDto.mail()).isPresent())
+            throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_ALREADYEXIST));
         }
-    }
-
-
-
-
 }
