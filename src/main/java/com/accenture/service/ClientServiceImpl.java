@@ -46,14 +46,14 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public ClientResponseDto findByMail(String mail) throws EntityNotFoundException {
-        Optional<Client> optionalClient = clientDao.findByClientMail(mail);
+        Optional<Client> optionalClient = clientDao.findByMail(mail);
         Client client = optionalClient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.CLIENT_MAIL_NOTFOUND)));
         return clientMapper.toClientResponseDto(client);
     }
 
     @Override
     public ClientResponseDto patchByMail(String mail, String newName) {
-        Optional<Client> optionalClient = clientDao.findByClientMail(mail);
+        Optional<Client> optionalClient = clientDao.findByMail(mail);
         Client client = optionalClient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.CLIENT_MAIL_NOTFOUND)));
         if (newName != null && !newName.isBlank()){
             client.setName(newName);
@@ -71,7 +71,7 @@ public class ClientServiceImpl implements ClientService{
             throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_NULLORBLANK));
         if (!Pattern.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",clientRequestDto.mail()))
             throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_WRONGFORMAT));
-        if (clientDao.findByClientMail(clientRequestDto.mail()).isPresent())
+        if (clientDao.findByMail(clientRequestDto.mail()).isPresent())
             throw new ClientException(messages.getMessage(Messages.CLIENT_MAIL_ALREADYEXIST));
         }
 }

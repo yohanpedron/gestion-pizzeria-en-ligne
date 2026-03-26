@@ -8,6 +8,6 @@ import java.util.UUID;
 
 public interface ClientDao extends JpaRepository<Client, UUID> {
 
-    Optional<Client> findByClientMail(String mail);
+    Optional<Client> findByMail(String mail);
 
 }

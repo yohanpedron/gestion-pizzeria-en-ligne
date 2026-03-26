@@ -8,8 +8,6 @@ import com.accenture.service.dto.OrderRequestDto;
 import com.accenture.service.dto.OrderResponseDto;
 import com.accenture.service.dto.OrderRowDescriptionRequestDto;
 import com.accenture.service.dto.OrderRowDescriptionResponseDto;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,19 +15,21 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of the order business logic.
+ * Handles validation, price calculation and persistence.
+ */
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
     private ClientDao clientDao;
-
-    @Autowired
     private PizzaDao pizzaDao;
-
-    @Autowired
     private OrderDao orderDao;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public OrderResponseDto addOrder(OrderRequestDto request) {
 
