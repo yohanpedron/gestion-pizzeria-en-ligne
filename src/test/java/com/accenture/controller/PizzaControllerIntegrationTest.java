@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class PizzaControllerIntegrationTest {
 
-    private static final String API_PIZZA_ENDPOINT = "/pizza";
+    private static final String API_PIZZA_ENDPOINT = "/pizzas";
 
     // Mock un serveur HTTP pour requêter sur notre serveur REST
     // C'est lui qui va appeler nos endpoints

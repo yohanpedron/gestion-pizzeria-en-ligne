@@ -6,6 +6,7 @@ import com.accenture.model.Pizza;
 import com.accenture.model.PizzaSize;
 import com.accenture.repository.PizzaDao;
 import com.accenture.service.dto.*;
+import com.accenture.utils.Messages;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
@@ -40,109 +41,6 @@ class PizzaServiceImplTest {
         //MockitoExtension + InjectMocks s'occupent de tout
     }
 
-    /// //////////////////////////// TESTS ATTRIBUTS PIZZA ////////////////////////////////////////////
-
-    @Test
-    @DisplayName("Test addPizza() must fail when name is empty")
-    void testAddPizzaFailEmptyName() {
-        // un nom vide
-        String name = "";
-        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
-        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
-
-        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
-
-        // le service doit refuser l'ajout
-        Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> pizzaService.addPizza(dtoRequest),
-                "addPizza must throw IllegalArgumentException when name is empty"
-        );
-    }
-
-    @Test
-    @DisplayName("Test addPizza() must fail when price map is empty")
-    void testAddPizzaFailEmptyPrice() {
-        // prix vide
-        String name = "Margherita";
-        Map<PizzaSize, Double> price = Map.of(); // vide
-        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
-
-        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
-
-        Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> pizzaService.addPizza(dtoRequest),
-                "addPizza must throw IllegalArgumentException when price map is empty"
-        );
-    }
-
-    @Test
-    @DisplayName("addPizza() must fail when a price is negative")
-    void addPizzaFailNegativePrice() {
-        // un DTO avec un prix négatif
-        PizzaRequestDto request = new PizzaRequestDto(
-                "Margherita",
-                Map.of(PizzaSize.MEDIUM, -5.0),
-                List.of(new IngredientRequestDto("Tomate"))
-        );
-
-        // le service doit lancer une exception
-        Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> pizzaService.addPizza(request),
-                "Price must be positive"
-        );
-    }
-
-
-    @Test
-    @DisplayName("Test addPizza() must fail when ingredient list is empty")
-    void testAddPizzaFailEmptyIngredientList() {
-        // ingrédients vides
-        String name = "Margherita";
-        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
-        List<IngredientRequestDto> ingredients = List.of(); // vide
-
-        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
-
-        Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> pizzaService.addPizza(dtoRequest),
-                "addPizza must throw IllegalArgumentException when ingredient list is empty"
-        );
-    }
-
-
-    @Test
-    @DisplayName("deletePizza() must set active to false instead of deleting")
-    void deletePizzaSoftDeleteValidTest() {
-        // une pizza existante et active
-        String name = "Margherita";
-        Pizza existing = new Pizza();
-        existing.setName(name);
-        existing.setActive(true);
-
-        // Mock DAO — la pizza existe
-        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
-                .thenReturn(Optional.of(existing));
-
-        // Mock DAO — save renvoie la pizza désactivée
-        Pizza disabled = new Pizza();
-        disabled.setName(name);
-        disabled.setActive(false);
-
-        Mockito.when(pizzaDao.save(Mockito.any(Pizza.class)))
-                .thenReturn(disabled);
-
-        Assertions.assertDoesNotThrow(() -> pizzaService.deletePizza(name));
-        Assertions.assertFalse(disabled.isActive(), "Pizza should be marked inactive after delete");
-    }
-
-
-
-    /// //////////////////////////// TESTS VERIFICATION PIZZA ////////////////////////////////////////////
-
     @Test
     @DisplayName("Test when Pizza is persisted from valid input")
     void testAddPizzaValidInputOk() {
@@ -174,10 +72,10 @@ class PizzaServiceImplTest {
 
         // Vérification des appels internes
         Assertions.assertAll(()
-                -> Assertions.assertNotNull(returnedValue, "DtoResponse should not be null"), ()
-                -> Assertions.assertNotNull(returnedValue.id(), "Id should not be null"), ()
-                -> Assertions.assertNotNull(returnedValue.name(), "Name should not be null"), ()
-                -> Assertions.assertEquals(name, returnedValue.name(), "Name should be the same as the expected"));
+                -> Assertions.assertNotNull(returnedValue, Messages.DTO_RESPONSE_NOT_NULL), ()
+                -> Assertions.assertNotNull(returnedValue.id(), Messages.ID_NOT_NULL), ()
+                -> Assertions.assertNotNull(returnedValue.name(), Messages.NAME_NOT_NULL), ()
+                -> Assertions.assertEquals(name, returnedValue.name(), Messages.NAME_SHOULD_MATCH));
         Mockito.verify(spy, Mockito.times(1)).addPizza(Mockito.any(PizzaRequestDto.class));
     }
 
@@ -200,12 +98,121 @@ class PizzaServiceImplTest {
                 .thenReturn(Optional.of(existingPizza));
 
         // le service doit refuser l'ajout
-        Assertions.assertThrows(
+        EntityExistsException ex = Assertions.assertThrows(
                 EntityExistsException.class,
-                () -> pizzaService.addPizza(dtoRequest),
-                "addPizza must throw EntityExistsException when pizza name already exists"
+                () -> pizzaService.addPizza(dtoRequest)
         );
+        Assertions.assertEquals(Messages.PIZZA_ALREADY_EXISTS, ex.getMessage());
+
     }
+    /// //////////////////////////// TESTS ATTRIBUTS PIZZA ////////////////////////////////////////////
+
+    @Test
+    @DisplayName("Test addPizza() must fail when name is empty")
+    void testAddPizzaFailEmptyName() {
+        // un nom vide
+        String name = "";
+        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
+        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        // le service doit refuser l'ajout
+        IllegalArgumentException ex = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest)
+        );
+        Assertions.assertEquals(Messages.PIZZA_NAME_EMPTY, ex.getMessage());
+
+    }
+
+    @Test
+    @DisplayName("Test addPizza() must fail when price map is empty")
+    void testAddPizzaFailEmptyPrice() {
+        // prix vide
+        String name = "Margherita";
+        Map<PizzaSize, Double> price = Map.of(); // vide
+        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        IllegalArgumentException ex = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest)
+        );
+        Assertions.assertEquals(Messages.PIZZA_PRICE_EMPTY, ex.getMessage());
+
+    }
+
+    @Test
+    @DisplayName("addPizza() must fail when a price is negative")
+    void addPizzaFailNegativePrice() {
+        // un DTO avec un prix négatif
+        PizzaRequestDto request = new PizzaRequestDto(
+                "Margherita",
+                Map.of(PizzaSize.MEDIUM, -5.0),
+                List.of(new IngredientRequestDto("Tomate"))
+        );
+
+        // le service doit lancer une exception
+        IllegalArgumentException ex = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(request)
+        );
+        Assertions.assertEquals(Messages.PIZZA_PRICE_NEGATIVE, ex.getMessage());
+
+    }
+
+
+    @Test
+    @DisplayName("Test addPizza() must fail when ingredient list is empty")
+    void testAddPizzaFailEmptyIngredientList() {
+        // ingrédients vides
+        String name = "Margherita";
+        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
+        List<IngredientRequestDto> ingredients = List.of(); // vide
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        IllegalArgumentException ex = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest)
+        );
+        Assertions.assertEquals(Messages.PIZZA_INGREDIENTS_EMPTY, ex.getMessage());
+
+    }
+
+
+    @Test
+    @DisplayName("deletePizza() must set active to false instead of deleting")
+    void deletePizzaSoftDeleteValidTest() {
+        // une pizza existante et active
+        String name = "Margherita";
+        Pizza existing = new Pizza();
+        existing.setName(name);
+        existing.setActive(true);
+
+        // Mock DAO — la pizza existe
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.of(existing));
+
+        // Mock DAO — save renvoie la pizza désactivée
+        Pizza disabled = new Pizza();
+        disabled.setName(name);
+        disabled.setActive(false);
+
+        Mockito.when(pizzaDao.save(Mockito.any(Pizza.class)))
+                .thenReturn(disabled);
+
+        Assertions.assertDoesNotThrow(() -> pizzaService.deletePizza(name));
+        Assertions.assertFalse(disabled.isActive());
+    }
+
+
+
+    /// //////////////////////////// TESTS VERIFICATION PIZZA ////////////////////////////////////////////
+
+
 
     @Test
     @DisplayName("Test the method findAll() from service, must return correct output")

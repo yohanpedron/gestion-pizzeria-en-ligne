@@ -7,6 +7,7 @@ import com.accenture.repository.PizzaDao;
 import com.accenture.service.dto.PizzaPatchRequestDto;
 import com.accenture.service.dto.PizzaRequestDto;
 import com.accenture.service.dto.PizzaResponseDto;
+import com.accenture.utils.Messages;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
@@ -30,16 +31,15 @@ public class PizzaServiceImpl implements PizzaService {
     public PizzaResponseDto addPizza(PizzaRequestDto request) {
 
         if (request.name() == null || request.name().isBlank()) {
-            throw new IllegalArgumentException("Pizza name cannot be empty");}
+            throw new IllegalArgumentException(Messages.PIZZA_NAME_EMPTY);}
         if (request.price() == null || request.price().isEmpty()) {
-            throw new IllegalArgumentException("Pizza price cannot be empty");}
+            throw new IllegalArgumentException(Messages.PIZZA_PRICE_EMPTY);}
         if (request.ingredients() == null || request.ingredients().isEmpty()) {
-            throw new IllegalArgumentException("Pizza must contain at least one ingredient");}
+            throw new IllegalArgumentException(Messages.PIZZA_INGREDIENTS_EMPTY);}
         if (pizzaDao.findByNameIgnoreCase(request.name()).isPresent()) {
-            throw new EntityExistsException("Pizza with this name already exists");}
+            throw new EntityExistsException(Messages.PIZZA_ALREADY_EXISTS);}
         if (request.price().values().stream().anyMatch(p -> p <= 0)) {
-            throw new IllegalArgumentException("Price must be positive");
-        }
+            throw new IllegalArgumentException(Messages.PIZZA_PRICE_NEGATIVE);}
 
         Pizza pizza = pizzaMapper.toPizza(request);
         Pizza saved = pizzaDao.save(pizza);
@@ -77,9 +77,8 @@ public class PizzaServiceImpl implements PizzaService {
     public PizzaResponseDto patchPizza(String name, PizzaPatchRequestDto request) {
 
         Pizza pizza = pizzaDao.findByNameIgnoreCase(name)
-                .orElseThrow(() -> new EntityNotFoundException("Pizza not found"));
+                .orElseThrow(() -> new EntityNotFoundException(Messages.PIZZA_NOT_FOUND));
 
-        // PATCH : mise à jour uniquement des champs présents
         if (request.name() != null && !request.name().isBlank()) {
             pizza.setName(request.name());
         }

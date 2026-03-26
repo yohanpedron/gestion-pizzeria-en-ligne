@@ -36,7 +36,7 @@ public class Order {
 
     /** List of pizzas included in the order. */
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "order_id")
     private List<OrderRowDescription> orderRowsDescription;
 
     /** Date and time when the order was created. */

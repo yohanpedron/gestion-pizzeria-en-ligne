@@ -8,6 +8,8 @@ import com.accenture.service.dto.OrderRequestDto;
 import com.accenture.service.dto.OrderResponseDto;
 import com.accenture.service.dto.OrderRowDescriptionRequestDto;
 import com.accenture.service.dto.OrderRowDescriptionResponseDto;
+import com.accenture.utils.Messages;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,7 @@ import java.util.List;
  */
 @Service
 @Transactional
+@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private ClientDao clientDao;
@@ -35,15 +38,15 @@ public class OrderServiceImpl implements OrderService {
 
         // 1) Validations simples
         if (request.clientId() == null) {
-            throw new IllegalArgumentException("Client ID cannot be null");
+            throw new IllegalArgumentException(Messages.CLIENT_ID_NULL);
         }
         if (request.rows() == null || request.rows().isEmpty()) {
-            throw new IllegalArgumentException("Order must contain at least one row");
+            throw new IllegalArgumentException(Messages.ORDER_ROWS_EMPTY);
         }
 
         // 2) Vérifier que le client existe
         Client client = clientDao.findById(request.clientId())
-                .orElseThrow(() -> new IllegalArgumentException("Client not found"));
+                .orElseThrow(() -> new IllegalArgumentException(Messages.CLIENT_NOT_FOUND));
 
         // 3) Mapper les rows + calcul du total
         List<OrderRowDescription> rows = new ArrayList<>();
@@ -52,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
         for (OrderRowDescriptionRequestDto rowDto : request.rows()) {
 
             Pizza pizza = pizzaDao.findById(rowDto.pizzaId())
-                    .orElseThrow(() -> new IllegalArgumentException("Pizza not found"));
+                    .orElseThrow(() -> new IllegalArgumentException(Messages.PIZZA_NOT_FOUND));
 
             double unitPrice = pizza.getPrice().get(rowDto.size());
             double rowTotal = unitPrice + rowDto.ingredientAmount();
