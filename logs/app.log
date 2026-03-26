@@ -841,6 +841,7 @@ APPLICATION FAILED TO START
 Description:
 
 Parameter 0 of constructor in com.accenture.controller.Impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:

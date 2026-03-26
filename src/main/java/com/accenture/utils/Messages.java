@@ -8,4 +8,5 @@ public class Messages {
     public static final String CLIENT_MAIL_WRONGFORMAT = "client.mail.wrongformat";
     public static final String CLIENT_MAIL_ALREADYEXIST = "client.mail.alreadyexist";
 
+    public static final String CLIENT_MAIL_NOTFOUND = "client.mail.notfound";
 }
