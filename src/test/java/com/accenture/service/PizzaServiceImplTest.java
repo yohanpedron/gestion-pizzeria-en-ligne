@@ -5,10 +5,8 @@ import com.accenture.model.Ingredient;
 import com.accenture.model.Pizza;
 import com.accenture.model.PizzaSize;
 import com.accenture.repository.PizzaDao;
-import com.accenture.service.dto.IngredientRequestDto;
-import com.accenture.service.dto.IngredientResponseDto;
-import com.accenture.service.dto.PizzaRequestDto;
-import com.accenture.service.dto.PizzaResponseDto;
+import com.accenture.service.dto.*;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,6 +40,111 @@ class PizzaServiceImplTest {
         //MockitoExtension + InjectMocks s'occupent de tout
     }
 
+    /// //////////////////////////// TESTS ATTRIBUTS PIZZA ////////////////////////////////////////////
+
+    @Test
+    @DisplayName("Test addPizza() must fail when name is empty")
+    void testAddPizzaFailEmptyName() {
+        // GIVEN — un nom vide
+        String name = "";
+        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
+        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        // WHEN + THEN — le service doit refuser l'ajout
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest),
+                "addPizza must throw IllegalArgumentException when name is empty"
+        );
+    }
+
+    @Test
+    @DisplayName("Test addPizza() must fail when price map is empty")
+    void testAddPizzaFailEmptyPrice() {
+        // GIVEN — prix vide
+        String name = "Margherita";
+        Map<PizzaSize, Double> price = Map.of(); // vide
+        List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        // WHEN + THEN
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest),
+                "addPizza must throw IllegalArgumentException when price map is empty"
+        );
+    }
+
+    @Test
+    @DisplayName("addPizza() must fail when a price is negative")
+    void addPizzaFailNegativePrice() {
+        // GIVEN — un DTO avec un prix négatif
+        PizzaRequestDto request = new PizzaRequestDto(
+                "Margherita",
+                Map.of(PizzaSize.MEDIUM, -5.0),
+                List.of(new IngredientRequestDto("Tomate"))
+        );
+
+        // WHEN + THEN — le service doit lancer une exception
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(request),
+                "Price must be positive"
+        );
+    }
+
+
+    @Test
+    @DisplayName("Test addPizza() must fail when ingredient list is empty")
+    void testAddPizzaFailEmptyIngredientList() {
+        // GIVEN — ingrédients vides
+        String name = "Margherita";
+        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
+        List<IngredientRequestDto> ingredients = List.of(); // vide
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
+
+        // WHEN + THEN
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> pizzaService.addPizza(dtoRequest),
+                "addPizza must throw IllegalArgumentException when ingredient list is empty"
+        );
+    }
+
+
+    @Test
+    @DisplayName("deletePizza() must set active to false instead of deleting")
+    void deletePizzaSoftDeleteValidTest() {
+        // une pizza existante et active
+        String name = "Margherita";
+        Pizza existing = new Pizza();
+        existing.setName(name);
+        existing.setActive(true);
+
+        // Mock DAO — la pizza existe
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.of(existing));
+
+        // Mock DAO — save renvoie la pizza désactivée
+        Pizza disabled = new Pizza();
+        disabled.setName(name);
+        disabled.setActive(false);
+
+        Mockito.when(pizzaDao.save(Mockito.any(Pizza.class)))
+                .thenReturn(disabled);
+
+        Assertions.assertDoesNotThrow(() -> pizzaService.deletePizza(name));
+        Assertions.assertFalse(disabled.isActive(), "Pizza should be marked inactive after delete");
+    }
+
+
+
+    /// //////////////////////////// TESTS VERIFICATION PIZZA ////////////////////////////////////////////
+
     @Test
     @DisplayName("Test when Pizza is persisted from valid input")
     void testAddPizzaValidInputOk() {
@@ -51,7 +155,7 @@ class PizzaServiceImplTest {
         List<IngredientRequestDto> ingredientDtos = List.of(new IngredientRequestDto("Tomate"));
 
         // Je crée mon request comme s'il venait du controller
-        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredientDtos, true);
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredientDtos);
         // Je crée mon entité (avant sauvegarde)
         Ingredient ingredientEntity = new Ingredient("Tomate", 10);
         Pizza pizza= new Pizza(name, price, List.of(ingredientEntity), true);
@@ -77,6 +181,32 @@ class PizzaServiceImplTest {
                 -> Assertions.assertNotNull(returnedValue.name(), "Name should not be null"), ()
                 -> Assertions.assertEquals(name, returnedValue.name(), "Name should be the same as the expected"));
         Mockito.verify(spy, Mockito.times(1)).addPizza(Mockito.any(PizzaRequestDto.class));
+    }
+
+    @Test
+    @DisplayName("Test when addPizza() is called with a name that already exists, must throw EntityExistsException")
+    void testAddPizzaAlreadyExists() {
+        // un nom déjà existant
+        String name = "Margherita";
+        Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
+        List<IngredientRequestDto> ingredientDtos = List.of(new IngredientRequestDto("Tomate"));
+
+        PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredientDtos);
+
+        // simulation d'une pizza déjà existante en base
+        Pizza existingPizza = new Pizza();
+        existingPizza.setName(name);
+
+        // Mock DAO — findByNameIgnoreCase renvoie une pizza existante
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.of(existingPizza));
+
+        // le service doit refuser l'ajout
+        Assertions.assertThrows(
+                EntityExistsException.class,
+                () -> pizzaService.addPizza(dtoRequest),
+                "addPizza must throw EntityExistsException when pizza name already exists"
+        );
     }
 
     @Test
@@ -241,45 +371,77 @@ class PizzaServiceImplTest {
         );
     }
 
-    @Test
-    @DisplayName("Test the method delete() from service, must delete pizza without error")
-    void testDeletePizzaWithoutError() {
-        UUID id = UUID.randomUUID();
-
-        //Simulation de la pizza existante
-        Pizza pizza = new Pizza();
-        pizza.setId(id);
-
-        //Mock DAO - getReferenceById renvoie l'entité
-        Mockito.when(pizzaDao.getReferenceById(Mockito.any(UUID.class))).thenReturn(pizza);
-
-        //Appel de la méthode
-        Assertions.assertDoesNotThrow(() -> pizzaService.deletePizza(id));
-
-        //On vérifie que ça ne plante pas
-        Assertions.assertAll(
-                () -> Assertions.assertDoesNotThrow(() -> pizzaService.deletePizza(id),"Delete should not throw any exception for valid ID")
-        );
-    }
 
     @Test
-    @DisplayName("Test the method delete() from service, must throw EntityNotFoundException when pizza does not exist")
-    void deleteInvalidTest() {
-        // un ID inexistant
-        UUID id = UUID.randomUUID();
+    @DisplayName("deletePizza() must throw when pizza does not exist")
+    void deletePizzaInvalidTest() {
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.empty());
 
-        // Mock DAO — getReferenceById lance une exception
-        Mockito.when(pizzaDao.getReferenceById(Mockito.any(UUID.class)))
-                .thenThrow(EntityNotFoundException.class);
-
-        // on vérifie que l’exception remonte
         Assertions.assertThrows(
                 EntityNotFoundException.class,
-                () -> pizzaService.deletePizza(id),
-                "Delete must throw EntityNotFoundException when pizza does not exist"
+                () -> pizzaService.deletePizza("Inexistante")
         );
     }
 
+
+    @Test
+    @DisplayName("Test patchPizza() must update only provided fields")
+    void patchPizzaValidTest() {
+        // pizza existante
+        String name = "Margherita";
+        Pizza existing = new Pizza(UUID.randomUUID(), name, Map.of(PizzaSize.MEDIUM, 9.0), List.of(new Ingredient("Tomate", 10)), true);
+
+        // PATCH : on change seulement le prix
+        PizzaPatchRequestDto patch = new PizzaPatchRequestDto(null, Map.of(PizzaSize.MEDIUM, 12.0), null);
+
+        // pizza mise à jour simulée
+        Pizza updated = new Pizza(existing.getId(), existing.getName(), patch.price(), existing.getIngredients(), existing.isActive());
+
+        PizzaResponseDto expected = new PizzaResponseDto(
+                updated.getId(),
+                updated.getName(),
+                updated.getPrice(),
+                List.of(new IngredientResponseDto(
+                        existing.getIngredients().getFirst().getId(),
+                        existing.getIngredients().getFirst().getName()
+                )),
+                updated.isActive()
+        );
+
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.of(existing));
+
+        Mockito.when(pizzaDao.save(Mockito.any(Pizza.class)))
+                .thenReturn(updated);
+
+        Mockito.when(pizzaMapper.toPizzaResponseDto(updated))
+                .thenReturn(expected);
+
+        // WHEN
+        PizzaResponseDto returned = pizzaService.patchPizza(name, patch);
+
+        // THEN
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(12.0, returned.price().get(PizzaSize.MEDIUM)),
+                () -> Assertions.assertEquals("Margherita", returned.name()),
+                () -> Assertions.assertTrue(returned.active())
+        );
+    }
+
+    @Test
+    @DisplayName("Test patchPizza() must fail when pizza does not exist")
+    void patchPizzaInvalidTest() {
+        PizzaPatchRequestDto patch = new PizzaPatchRequestDto(null, null, null);
+
+        Mockito.when(pizzaDao.findByNameIgnoreCase(Mockito.anyString()))
+                .thenReturn(Optional.empty());
+
+        Assertions.assertThrows(
+                EntityNotFoundException.class,
+                () -> pizzaService.patchPizza("Inexistante", patch)
+        );
+    }
 
 
 }
