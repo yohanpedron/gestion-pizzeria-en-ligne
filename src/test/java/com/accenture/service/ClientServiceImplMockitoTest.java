@@ -5,6 +5,7 @@ import com.accenture.mapper.ClientMapper;
 import com.accenture.model.Client;
 import com.accenture.model.Order;
 import com.accenture.repository.ClientDao;
+import com.accenture.service.dto.ClientPatchRequestDto;
 import com.accenture.service.dto.ClientRequestDto;
 import com.accenture.service.dto.ClientResponseDto;
 import jakarta.persistence.EntityNotFoundException;
@@ -24,11 +25,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ClientServiceImplMockitoTest {
+class ClientServiceImplMockitoTest {
 
     @Mock
     private ClientDao clientDao;
@@ -122,11 +122,11 @@ public class ClientServiceImplMockitoTest {
 
         ClientRequestDto clientRequestDto = new ClientRequestDto(name,mail);
 
-        Mockito.when(clientDao.findByMail(eq(mail))).thenReturn(Optional.of(new Client()));
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.of(new Client()));
 
         Assertions.assertThrows(ClientException.class, () -> service.addClient(clientRequestDto));
 
-        Mockito.verify(clientDao, Mockito.times(1)).findByMail(eq(mail));
+        Mockito.verify(clientDao, Mockito.times(1)).findByMail(mail);
 
         Mockito.verifyNoInteractions(clientMapper);
         Mockito.verify(clientDao, never()).save(any(Client.class));
@@ -209,6 +209,7 @@ public class ClientServiceImplMockitoTest {
 
         // Patch
         String newName = "NewName";
+        ClientPatchRequestDto clientPatchRequestDto = new ClientPatchRequestDto(newName);
 
         // Après patch + save
         Client saved = new Client(id,newName,mail,orders,vip);
@@ -219,7 +220,7 @@ public class ClientServiceImplMockitoTest {
         Mockito.when(clientDao.save(saved)).thenReturn(saved);
         Mockito.when(clientMapper.toClientResponseDto(saved)).thenReturn(clientResponseDto);
 
-        ClientResponseDto result = service.patchByMail(mail, newName);
+        ClientResponseDto result = service.patchByMail(mail, clientPatchRequestDto);
 
         Assertions.assertAll(
                 () -> Assertions.assertNotNull(result),
@@ -251,6 +252,7 @@ public class ClientServiceImplMockitoTest {
 
         // Patch
         String newName = " ";
+        ClientPatchRequestDto clientPatchRequestDto = new ClientPatchRequestDto(newName);
 
         // Après patch + save
         Client saved = new Client(id,oldName,mail,orders,vip);
@@ -261,7 +263,7 @@ public class ClientServiceImplMockitoTest {
         Mockito.when(clientDao.save(saved)).thenReturn(saved);
         Mockito.when(clientMapper.toClientResponseDto(saved)).thenReturn(clientResponseDto);
 
-        ClientResponseDto result = service.patchByMail(mail, newName);
+        ClientResponseDto result = service.patchByMail(mail, clientPatchRequestDto);
 
         Assertions.assertAll(
                 () -> Assertions.assertNotNull(result),
@@ -283,7 +285,7 @@ public class ClientServiceImplMockitoTest {
         String mail = "mail@mail.com";
         Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.empty());
 
-        Assertions.assertThrows(EntityNotFoundException.class,() -> service.patchByMail(mail,"Name"));
+        Assertions.assertThrows(EntityNotFoundException.class,() -> service.patchByMail(mail,new ClientPatchRequestDto("Name")));
     }
 
 }
