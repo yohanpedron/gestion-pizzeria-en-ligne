@@ -1,0 +1,12 @@
+com.accenture
+com.accenture.config
+com.accenture.controller
+com.accenture.controller.advice
+com.accenture.controller.Impl
+com.accenture.exception
+com.accenture.mapper
+com.accenture.model
+com.accenture.repository
+com.accenture.service
+com.accenture.service.dto
+com.accenture.utils
