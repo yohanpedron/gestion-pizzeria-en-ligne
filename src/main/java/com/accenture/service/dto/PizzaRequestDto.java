@@ -8,13 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 public record PizzaRequestDto(
-        @NotBlank
+
         String name,
 
-        @NotEmpty
         Map<PizzaSize, Double> price,
 
-        @NotEmpty
         List<IngredientRequestDto> ingredients
 
         //boolean active

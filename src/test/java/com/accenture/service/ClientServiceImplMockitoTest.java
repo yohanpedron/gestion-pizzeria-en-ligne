@@ -122,11 +122,11 @@ public class ClientServiceImplMockitoTest {
 
         ClientRequestDto clientRequestDto = new ClientRequestDto(name,mail);
 
-        Mockito.when(clientDao.findByClientMail(eq(mail))).thenReturn(Optional.of(new Client()));
+        Mockito.when(clientDao.findByMail(eq(mail))).thenReturn(Optional.of(new Client()));
 
         Assertions.assertThrows(ClientException.class, () -> service.addClient(clientRequestDto));
 
-        Mockito.verify(clientDao, Mockito.times(1)).findByClientMail(eq(mail));
+        Mockito.verify(clientDao, Mockito.times(1)).findByMail(eq(mail));
 
         Mockito.verifyNoInteractions(clientMapper);
         Mockito.verify(clientDao, never()).save(any(Client.class));
@@ -171,7 +171,7 @@ public class ClientServiceImplMockitoTest {
         ClientResponseDto clientResponseDto1 = new ClientResponseDto(client1.getId(),client1.getName(),client1.getMail(),client1.getOrders(),client1.isVip());
 
         Mockito.when(clientMapper.toClientResponseDto(Mockito.any(Client.class))).thenReturn(clientResponseDto1);
-        Mockito.when(clientDao.findByClientMail(mail)).thenReturn(Optional.of(client1));
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.of(client1));
 
         ClientResponseDto result = service.findByMail(mail);
 
@@ -189,7 +189,7 @@ public class ClientServiceImplMockitoTest {
     @DisplayName("Test findByMail from service, must return exception")
     void testFindByMailClientNotFound(){
         String mail = "mail@mail.com";
-        Mockito.when(clientDao.findByClientMail(mail)).thenReturn(Optional.empty());
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.empty());
 
         Assertions.assertThrows(EntityNotFoundException.class,() -> service.findByMail(mail));
     }
@@ -215,7 +215,7 @@ public class ClientServiceImplMockitoTest {
 
         ClientResponseDto clientResponseDto = new ClientResponseDto(id,newName,mail,orders,vip);
 
-        Mockito.when(clientDao.findByClientMail(mail)).thenReturn(Optional.of(existing));
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.of(existing));
         Mockito.when(clientDao.save(saved)).thenReturn(saved);
         Mockito.when(clientMapper.toClientResponseDto(saved)).thenReturn(clientResponseDto);
 
@@ -230,7 +230,7 @@ public class ClientServiceImplMockitoTest {
                 () -> Assertions.assertEquals(vip,result.vip())
         );
 
-        Mockito.verify(clientDao).findByClientMail(mail);
+        Mockito.verify(clientDao).findByMail(mail);
         Mockito.verify(clientMapper).toClientResponseDto(existing);
         Mockito.verifyNoMoreInteractions(clientDao,clientMapper);
     }
@@ -257,7 +257,7 @@ public class ClientServiceImplMockitoTest {
 
         ClientResponseDto clientResponseDto = new ClientResponseDto(id,oldName,mail,orders,vip);
 
-        Mockito.when(clientDao.findByClientMail(mail)).thenReturn(Optional.of(existing));
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.of(existing));
         Mockito.when(clientDao.save(saved)).thenReturn(saved);
         Mockito.when(clientMapper.toClientResponseDto(saved)).thenReturn(clientResponseDto);
 
@@ -272,7 +272,7 @@ public class ClientServiceImplMockitoTest {
                 () -> Assertions.assertEquals(vip,result.vip())
         );
 
-        Mockito.verify(clientDao).findByClientMail(mail);
+        Mockito.verify(clientDao).findByMail(mail);
         Mockito.verify(clientMapper).toClientResponseDto(existing);
         Mockito.verifyNoMoreInteractions(clientDao,clientMapper);
     }
@@ -281,7 +281,7 @@ public class ClientServiceImplMockitoTest {
     @DisplayName("Test patch from service, must return old name")
     void testPatchByMailClientNotFoundFail() {
         String mail = "mail@mail.com";
-        Mockito.when(clientDao.findByClientMail(mail)).thenReturn(Optional.empty());
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.empty());
 
         Assertions.assertThrows(EntityNotFoundException.class,() -> service.patchByMail(mail,"Name"));
     }

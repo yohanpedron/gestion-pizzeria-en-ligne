@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import tools.jackson.databind.ObjectMapper;
 
@@ -40,7 +41,7 @@ class PizzaControllerIntegrationTest {
         PizzaRequestDto requestDto = new PizzaRequestDto("mer", Map.of(PizzaSize.MEDIUM, 12.0), List.of(new IngredientRequestDto("Bolognaise"))
         );
 
-        mockMvc.perform(post(API_PIZZA_ENDPOINT)
+        mockMvc.perform(MockMvcRequestBuilders.post(API_PIZZA_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
                         .characterEncoding("UTF-8")
                         .content(objectMapper.writeValueAsString(requestDto)))
@@ -71,17 +72,17 @@ class PizzaControllerIntegrationTest {
         );
 
 
-        mockMvc.perform(post(API_PIZZA_ENDPOINT)
+        mockMvc.perform(MockMvcRequestBuilders.post(API_PIZZA_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequestName)))
                 .andExpect(status().isBadRequest());
 
-        mockMvc.perform(post(API_PIZZA_ENDPOINT)
+        mockMvc.perform(MockMvcRequestBuilders.post(API_PIZZA_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequestPrice)))
                 .andExpect(status().isBadRequest());
 
-        mockMvc.perform(post(API_PIZZA_ENDPOINT)
+        mockMvc.perform(MockMvcRequestBuilders.post(API_PIZZA_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequestIngredient)))
                 .andExpect(status().isBadRequest());

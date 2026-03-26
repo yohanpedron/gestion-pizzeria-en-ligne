@@ -1,6 +1,8 @@
 package com.accenture.controller.advice;
 
 import com.accenture.exception.ClientException;
+import com.accenture.exception.OrderException;
+import com.accenture.exception.PizzaException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * Conseils globaux pour la gestion des exceptions des contrôleurs REST.
  */
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.accenture")
 public class ControllerAdvice {
 
     private final MessageSource messageSource;
@@ -25,11 +27,21 @@ public class ControllerAdvice {
         this.messageSource = messageSource;
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorDto> handleIllegalArgument(IllegalArgumentException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDto(
+                java.time.LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                e.getMessage()
+        ));
+    }
+
+
     /**
      * Appelée quand une exception métier survient.
      * Renvoie un 400 BAD_REQUEST avec le message métier.
      */
-    @ExceptionHandler({ClientException.class})
+    @ExceptionHandler({ClientException.class, OrderException.class, PizzaException.class})
     public ResponseEntity<ErrorDto> businessException(Exception e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDto(
                 java.time.LocalDateTime.now(),

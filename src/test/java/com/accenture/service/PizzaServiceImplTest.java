@@ -45,14 +45,14 @@ class PizzaServiceImplTest {
     @Test
     @DisplayName("Test addPizza() must fail when name is empty")
     void testAddPizzaFailEmptyName() {
-        // GIVEN — un nom vide
+        // un nom vide
         String name = "";
         Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
         List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
 
         PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
 
-        // WHEN + THEN — le service doit refuser l'ajout
+        // le service doit refuser l'ajout
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> pizzaService.addPizza(dtoRequest),
@@ -63,14 +63,13 @@ class PizzaServiceImplTest {
     @Test
     @DisplayName("Test addPizza() must fail when price map is empty")
     void testAddPizzaFailEmptyPrice() {
-        // GIVEN — prix vide
+        // prix vide
         String name = "Margherita";
         Map<PizzaSize, Double> price = Map.of(); // vide
         List<IngredientRequestDto> ingredients = List.of(new IngredientRequestDto("Tomate"));
 
         PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
 
-        // WHEN + THEN
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> pizzaService.addPizza(dtoRequest),
@@ -81,14 +80,14 @@ class PizzaServiceImplTest {
     @Test
     @DisplayName("addPizza() must fail when a price is negative")
     void addPizzaFailNegativePrice() {
-        // GIVEN — un DTO avec un prix négatif
+        // un DTO avec un prix négatif
         PizzaRequestDto request = new PizzaRequestDto(
                 "Margherita",
                 Map.of(PizzaSize.MEDIUM, -5.0),
                 List.of(new IngredientRequestDto("Tomate"))
         );
 
-        // WHEN + THEN — le service doit lancer une exception
+        // le service doit lancer une exception
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> pizzaService.addPizza(request),
@@ -100,14 +99,13 @@ class PizzaServiceImplTest {
     @Test
     @DisplayName("Test addPizza() must fail when ingredient list is empty")
     void testAddPizzaFailEmptyIngredientList() {
-        // GIVEN — ingrédients vides
+        // ingrédients vides
         String name = "Margherita";
         Map<PizzaSize, Double> price = Map.of(PizzaSize.MEDIUM, 9.0);
         List<IngredientRequestDto> ingredients = List.of(); // vide
 
         PizzaRequestDto dtoRequest = new PizzaRequestDto(name, price, ingredients);
 
-        // WHEN + THEN
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> pizzaService.addPizza(dtoRequest),

@@ -23,6 +23,9 @@ public class PizzaServiceImpl implements PizzaService {
     private final PizzaDao pizzaDao;
     private final PizzaMapper pizzaMapper;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public PizzaResponseDto addPizza(PizzaRequestDto request) {
 
@@ -43,6 +46,9 @@ public class PizzaServiceImpl implements PizzaService {
         return pizzaMapper.toPizzaResponseDto(saved);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void deletePizza(String name) {
         Pizza pizza = pizzaDao.findByNameIgnoreCase(name)
@@ -53,6 +59,9 @@ public class PizzaServiceImpl implements PizzaService {
         pizzaDao.save(pizza);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PizzaResponseDto> findAll() {
         return pizzaDao.findAll()
@@ -61,6 +70,9 @@ public class PizzaServiceImpl implements PizzaService {
                 .toList();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public PizzaResponseDto patchPizza(String name, PizzaPatchRequestDto request) {
 
@@ -87,7 +99,9 @@ public class PizzaServiceImpl implements PizzaService {
         return pizzaMapper.toPizzaResponseDto(saved);
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PizzaResponseDto> findByName(String name) {
         return pizzaDao.findByNameContainingIgnoreCase(name)
@@ -96,6 +110,9 @@ public class PizzaServiceImpl implements PizzaService {
                 .toList();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PizzaResponseDto> findByIngredient(String ingredient) {
         return pizzaDao.findByIngredientsNameContainingIgnoreCase(ingredient)
