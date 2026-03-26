@@ -10,5 +10,7 @@ public interface ClientMapper {
 
     Client toClient(ClientRequestDto clientRequestDto);
 
-    ClientResponseDto toclientResponseDto(Client client);
+    ClientResponseDto toClientResponseDto(Client client);
+
+
 }
