@@ -4,6 +4,7 @@ import com.accenture.exception.ClientException;
 import com.accenture.mapper.ClientMapper;
 import com.accenture.model.Client;
 import com.accenture.repository.ClientDao;
+import com.accenture.service.dto.ClientPatchRequestDto;
 import com.accenture.service.dto.ClientRequestDto;
 import com.accenture.service.dto.ClientResponseDto;
 import com.accenture.utils.Messages;
@@ -26,6 +27,7 @@ public class ClientServiceImpl implements ClientService{
     private final OrderService orderService;
     private final MessageSourceAccessor messages;
 
+    /** {@inheritDoc} */
     @Override
     public ClientResponseDto addClient(ClientRequestDto clientRequestDto) throws ClientException{
         verify(clientRequestDto);
@@ -33,17 +35,14 @@ public class ClientServiceImpl implements ClientService{
         return clientMapper.toClientResponseDto(saved);
     }
 
+    /** {@inheritDoc} */
     @Override
     public List<ClientResponseDto> findAllClients() {
         List<Client> clients = clientDao.findAll();
         return clients.stream().map(clientMapper::toClientResponseDto).toList();
     }
 
-    @Override
-    public void deleteClient(UUID id) {
-
-    }
-
+    /** {@inheritDoc} */
     @Override
     public ClientResponseDto findByMail(String mail) throws EntityNotFoundException {
         Optional<Client> optionalClient = clientDao.findByMail(mail);
@@ -51,17 +50,19 @@ public class ClientServiceImpl implements ClientService{
         return clientMapper.toClientResponseDto(client);
     }
 
+    /** {@inheritDoc} */
     @Override
-    public ClientResponseDto patchByMail(String mail, String newName) {
+    public ClientResponseDto patchByMail(String mail, ClientPatchRequestDto clientPatchRequestDto) {
         Optional<Client> optionalClient = clientDao.findByMail(mail);
         Client client = optionalClient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.CLIENT_MAIL_NOTFOUND)));
-        if (newName != null && !newName.isBlank()){
-            client.setName(newName);
+        if (clientPatchRequestDto.name() != null && !clientPatchRequestDto.name().isBlank()){
+            client.setName(clientPatchRequestDto.name());
         }
         Client saved = clientDao.save(client);
         return clientMapper.toClientResponseDto(saved);
     }
 
+    /** {@inheritDoc} */
     public void verify(ClientRequestDto clientRequestDto) {
         if (clientRequestDto == null)
             throw new ClientException(messages.getMessage(Messages.CLIENT_NULL));
