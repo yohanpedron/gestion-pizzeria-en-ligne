@@ -1,6 +1,6 @@
 package com.accenture.controller;
 
-import com.accenture.controller.Impl.ClientController;
+import com.accenture.controller.impl.ClientController;
 import com.accenture.exception.ClientException;
 import com.accenture.mapper.ClientMapper;
 import com.accenture.model.Order;
@@ -27,7 +27,7 @@ import java.util.UUID;
 @WebMvcTest(controllers = ClientController.class)
 class ClientControllerIntegrationTest {
 
-    private static String API_CLIENTS_ENDPOINT = "/clients";
+    private static final String API_CLIENTS_ENDPOINT = "/clients";
 
     @Autowired
     private MockMvc mockMvc;

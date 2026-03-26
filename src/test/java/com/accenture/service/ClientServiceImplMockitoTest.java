@@ -25,7 +25,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -123,11 +122,11 @@ class ClientServiceImplMockitoTest {
 
         ClientRequestDto clientRequestDto = new ClientRequestDto(name,mail);
 
-        Mockito.when(clientDao.findByMail(eq(mail))).thenReturn(Optional.of(new Client()));
+        Mockito.when(clientDao.findByMail(mail)).thenReturn(Optional.of(new Client()));
 
         Assertions.assertThrows(ClientException.class, () -> service.addClient(clientRequestDto));
 
-        Mockito.verify(clientDao, Mockito.times(1)).findByMail(eq(mail));
+        Mockito.verify(clientDao, Mockito.times(1)).findByMail(mail);
 
         Mockito.verifyNoInteractions(clientMapper);
         Mockito.verify(clientDao, never()).save(any(Client.class));
