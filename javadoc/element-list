@@ -2,7 +2,7 @@ com.accenture
 com.accenture.config
 com.accenture.controller
 com.accenture.controller.advice
-com.accenture.controller.Impl
+com.accenture.controller.impl
 com.accenture.exception
 com.accenture.mapper
 com.accenture.model

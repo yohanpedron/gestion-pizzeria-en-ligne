@@ -1,6 +1,5 @@
 package com.accenture.controller;
 
-import com.accenture.service.ClientServiceImpl;
 import com.accenture.service.dto.ClientRequestDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 class ClientControllerIntegrationEndToEndTest {
 
-    private static String API_CLIENTS_ENDPOINT = "/clients";
+    private static final String API_CLIENTS_ENDPOINT = "/clients";
 
     @LocalServerPort
     private int port;

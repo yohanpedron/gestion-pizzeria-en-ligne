@@ -285,7 +285,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
 
 
 Action:
@@ -376,7 +376,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
 
 
 Action:
@@ -427,7 +427,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.PizzaController required a bean of type 'com.accenture.service.PizzaService' that could not be found.
 
 
 Action:
@@ -1010,7 +1010,7 @@ Caused by: org.hibernate.AnnotationException: Property 'com.accenture.model.Pizz
 	Maximum pool size: undefined/unknown
 2026-03-25T10:15:44.201+01:00  INFO 28124 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-03-25T10:15:44.231+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-25T10:15:44.257+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2315bc07] failed
+2026-03-25T10:15:44.257+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2315bc07] failed
 2026-03-25T10:15:44.257+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-25T10:15:44.258+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2026-03-25T10:15:44.285+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
@@ -1020,7 +1020,7 @@ Caused by: org.hibernate.AnnotationException: Property 'com.accenture.model.Pizz
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2026-03-25T10:15:44.311+01:00 ERROR 28124 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2315bc07] failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2315bc07] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-7.0.6.jar:7.0.6]
@@ -1088,7 +1088,7 @@ Caused by: java.lang.ClassNotFoundException: com.accenture.service.ClientService
 	Maximum pool size: undefined/unknown
 2026-03-25T10:22:03.568+01:00  INFO 28124 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-03-25T10:22:03.594+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-25T10:22:03.610+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@11de3632] failed
+2026-03-25T10:22:03.610+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@11de3632] failed
 2026-03-25T10:22:03.611+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-25T10:22:03.611+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2026-03-25T10:22:03.627+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
@@ -1098,7 +1098,7 @@ Caused by: java.lang.ClassNotFoundException: com.accenture.service.ClientService
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2026-03-25T10:22:03.632+01:00 ERROR 28124 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@11de3632] failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@11de3632] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-7.0.6.jar:7.0.6]
@@ -1223,7 +1223,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1314,7 +1314,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1405,7 +1405,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1496,7 +1496,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1587,7 +1587,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1678,7 +1678,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -1943,7 +1943,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2068,7 +2068,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2159,7 +2159,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2250,7 +2250,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2341,7 +2341,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2432,7 +2432,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2523,7 +2523,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2614,7 +2614,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -2906,7 +2906,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -3524,7 +3524,7 @@ Caused by: org.springframework.data.core.PropertyReferenceException: No property
 	Maximum pool size: undefined/unknown
 2026-03-25T14:40:59.422+01:00  INFO 28124 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-03-25T14:40:59.482+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-25T14:40:59.517+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@706fb458] failed
+2026-03-25T14:40:59.517+01:00  WARN 28124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@706fb458] failed
 2026-03-25T14:40:59.517+01:00  INFO 28124 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-25T14:40:59.518+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-53 - Shutdown initiated...
 2026-03-25T14:40:59.550+01:00  INFO 28124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-53 - Shutdown completed.
@@ -3534,7 +3534,7 @@ Caused by: org.springframework.data.core.PropertyReferenceException: No property
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2026-03-25T14:40:59.559+01:00 ERROR 28124 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@706fb458] failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@706fb458] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-7.0.6.jar:7.0.6]
@@ -4158,7 +4158,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -4359,7 +4359,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -4560,7 +4560,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -4761,7 +4761,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -4962,7 +4962,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -5163,7 +5163,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -5558,7 +5558,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.accenture.controller.Impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
+Parameter 0 of constructor in com.accenture.controller.impl.ClientController required a bean of type 'com.accenture.service.ClientService' that could not be found.
 
 
 Action:
@@ -7020,7 +7020,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 	Maximum pool size: undefined/unknown
 2026-03-26T10:28:13.204+01:00  INFO 1824 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-03-26T10:28:13.248+01:00  INFO 1824 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-26T10:28:13.272+01:00  WARN 1824 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2f04a0b3] failed
+2026-03-26T10:28:13.272+01:00  WARN 1824 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2f04a0b3] failed
 2026-03-26T10:28:13.273+01:00  INFO 1824 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-26T10:28:13.273+01:00  INFO 1824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
 2026-03-26T10:28:13.304+01:00  INFO 1824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
@@ -7030,7 +7030,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2026-03-26T10:28:13.327+01:00 ERROR 1824 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2f04a0b3] failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientController': Resolution of declared constructors on bean Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2f04a0b3] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-7.0.6.jar:7.0.6]
@@ -7803,7 +7803,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.4.jar:4.0.4]
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.accenture.controller.Impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2fd0deae]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.accenture.controller.impl.ClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2fd0deae]
 	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.6.jar:7.0.6]
 	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-7.0.6.jar:7.0.6]
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:460) ~[spring-beans-7.0.6.jar:7.0.6]
@@ -8462,3 +8462,362 @@ Caused by: java.lang.ClassNotFoundException: com.accenture.service.dto.ClientReq
 2026-03-26T14:16:44.949+01:00  INFO 34692 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
 2026-03-26T14:16:45.027+01:00  INFO 34692 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
 2026-03-26T14:16:45.032+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 6.948 seconds (process running for 7.552)
+2026-03-26T14:58:01.855+01:00  INFO 34692 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 6 class path changes (0 additions, 6 deletions, 0 modifications)
+2026-03-26T14:58:01.865+01:00  INFO 34692 --- [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-26T14:58:01.876+01:00  INFO 34692 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-26T14:58:01.886+01:00  INFO 34692 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:58:01.892+01:00  INFO 34692 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-26T14:58:01.901+01:00  INFO 34692 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-26T14:58:02.023+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.1 with PID 34692 (C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne\target\classes started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-26T14:58:02.023+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T14:58:02.943+01:00  WARN 34692 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.accenture.service.ClientServiceImpl]
+2026-03-26T14:58:02.959+01:00 ERROR 34692 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.accenture.service.ClientServiceImpl]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:220) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:355) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:283) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.4.jar:4.0.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.4.jar:4.0.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.4.jar:4.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.4.jar:4.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.4.jar:4.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.4.jar:4.0.4]
+	at com.accenture.GestionPizzeriaEnLigneApplication.main(GestionPizzeriaEnLigneApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.4.jar:4.0.4]
+Caused by: java.io.FileNotFoundException: class path resource [com/accenture/service/ClientService.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:212) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.ClassFileMetadataReader.parseClassModel(ClassFileMetadataReader.java:49) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.ClassFileMetadataReader.<init>(ClassFileMetadataReader.java:45) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.ClassFileMetadataReaderFactory.getMetadataReader(ClassFileMetadataReaderFactory.java:62) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:127) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.AbstractMetadataReaderFactory.getMetadataReader(AbstractMetadataReaderFactory.java:62) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:40) ~[spring-core-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:728) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getInterfaces(ConfigurationClassParser.java:1074) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.collectImports(ConfigurationClassParser.java:566) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.getImports(ConfigurationClassParser.java:541) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:362) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:283) ~[spring-context-7.0.6.jar:7.0.6]
+	... 21 common frames omitted
+
+2026-03-26T14:58:15.567+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.1 with PID 34692 (C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne\target\classes started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-26T14:58:15.568+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T14:58:15.927+01:00  INFO 34692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T14:58:15.945+01:00  INFO 34692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2026-03-26T14:58:16.101+01:00  INFO 34692 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-26T14:58:16.103+01:00  INFO 34692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-26T14:58:16.103+01:00  INFO 34692 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-26T14:58:16.154+01:00  INFO 34692 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 586 ms
+2026-03-26T14:58:16.216+01:00  INFO 34692 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-26T14:58:16.254+01:00  INFO 34692 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T14:58:16.256+01:00  INFO 34692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-03-26T14:58:16.279+01:00  INFO 34692 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1b9b98c9
+2026-03-26T14:58:16.280+01:00  INFO 34692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-03-26T14:58:16.293+01:00  WARN 34692 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T14:58:16.299+01:00  INFO 34692 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T14:58:16.440+01:00  INFO 34692 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T14:58:16.489+01:00  INFO 34692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:58:16.648+01:00  WARN 34692 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T14:58:16.822+01:00  INFO 34692 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-26T14:58:17.002+01:00  INFO 34692 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-26T14:58:17.020+01:00  INFO 34692 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-26T14:58:17.024+01:00  INFO 34692 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 1.473 seconds (process running for 2499.552)
+2026-03-26T14:58:17.025+01:00  INFO 34692 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-03-26T14:58:46.601+01:00  INFO 28396 --- [main] .ClientControllerIntegrationEndToEndTest : Starting ClientControllerIntegrationEndToEndTest using Java 25.0.1 with PID 28396 (started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-26T14:58:46.603+01:00  INFO 28396 --- [main] .ClientControllerIntegrationEndToEndTest : The following 1 profile is active: "test"
+2026-03-26T14:58:48.177+01:00  INFO 28396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T14:58:48.274+01:00  INFO 28396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 3 JPA repository interfaces.
+2026-03-26T14:58:49.699+01:00  INFO 28396 --- [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-03-26T14:58:49.729+01:00  INFO 28396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-26T14:58:49.731+01:00  INFO 28396 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-26T14:58:49.901+01:00  INFO 28396 --- [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3272 ms
+2026-03-26T14:58:50.378+01:00  INFO 28396 --- [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-26T14:58:50.595+01:00  INFO 28396 --- [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-26T14:58:51.416+01:00  INFO 28396 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T14:58:51.472+01:00  INFO 28396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-26T14:58:51.758+01:00  INFO 28396 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-03-26T14:58:51.761+01:00  INFO 28396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-26T14:58:51.799+01:00  WARN 28396 --- [main] org.hibernate.orm.core                   : HHH000511: The 2.4.240 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 13.0.0. Check the community dialects project for available legacy versions.
+2026-03-26T14:58:51.804+01:00  WARN 28396 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T14:58:51.838+01:00  INFO 28396 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 2.4.240
+	Default catalog/schema: TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T14:58:53.231+01:00  INFO 28396 --- [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T14:58:53.262+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    set client_min_messages = WARNING
+2026-03-26T14:58:53.265+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists FK6pegnpt5v5wpj6ylffprmoti9
+2026-03-26T14:58:53.266+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists FKokujq7ea93dh3nr3ulfk5pk97
+2026-03-26T14:58:53.266+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       drop constraint if exists FK17yo6gry2nuwg2erwhbaxqbs9
+2026-03-26T14:58:53.267+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       drop constraint if exists FKid41i0xx42ffsla3xd1ify6tr
+2026-03-26T14:58:53.267+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKmv0gc0fm7dpou43mp4sqjk40o
+2026-03-26T14:58:53.267+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKbmkay60qrmenad7mc32udtvab
+2026-03-26T14:58:53.268+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_price 
+       drop constraint if exists FKav0kwwop5rujt3q8i2qmcbhid
+2026-03-26T14:58:53.268+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists client cascade
+2026-03-26T14:58:53.269+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists ingredient cascade
+2026-03-26T14:58:53.269+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists order_row_description cascade
+2026-03-26T14:58:53.269+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists orders cascade
+2026-03-26T14:58:53.270+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists pizza cascade
+2026-03-26T14:58:53.270+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists pizza_ingredients cascade
+2026-03-26T14:58:53.270+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    drop table if exists pizza_price cascade
+2026-03-26T14:58:53.278+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table client (
+        vip boolean not null,
+        id uuid not null,
+        mail varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-26T14:58:53.285+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table ingredient (
+        stock integer not null,
+        id uuid not null,
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-26T14:58:53.286+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table order_row_description (
+        ingredient_amount integer not null,
+        size smallint check ((size between 0 and 2)),
+        id uuid not null,
+        order_rows_description_id uuid,
+        pizza_id uuid unique,
+        primary key (id)
+    )
+2026-03-26T14:58:53.292+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table orders (
+        status smallint check ((status between 0 and 3)),
+        total_order float(53) not null,
+        date timestamp(6),
+        client_id uuid,
+        id uuid not null,
+        orders_id uuid,
+        primary key (id)
+    )
+2026-03-26T14:58:53.294+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table pizza (
+        active boolean not null,
+        id uuid not null,
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-26T14:58:53.295+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table pizza_ingredients (
+        ingredients_id uuid not null unique,
+        pizza_id uuid not null
+    )
+2026-03-26T14:58:53.296+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    create table pizza_price (
+        price float(53),
+        size smallint not null check ((size between 0 and 2)),
+        pizza_id uuid not null,
+        primary key (size, pizza_id)
+    )
+2026-03-26T14:58:53.297+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FK6pegnpt5v5wpj6ylffprmoti9 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-26T14:58:53.310+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       add constraint FKokujq7ea93dh3nr3ulfk5pk97 
+       foreign key (order_rows_description_id) 
+       references orders
+2026-03-26T14:58:53.313+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FK17yo6gry2nuwg2erwhbaxqbs9 
+       foreign key (client_id) 
+       references client
+2026-03-26T14:58:53.314+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FKid41i0xx42ffsla3xd1ify6tr 
+       foreign key (orders_id) 
+       references client
+2026-03-26T14:58:53.315+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKmv0gc0fm7dpou43mp4sqjk40o 
+       foreign key (ingredients_id) 
+       references ingredient
+2026-03-26T14:58:53.316+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKbmkay60qrmenad7mc32udtvab 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-26T14:58:53.317+01:00 DEBUG 28396 --- [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_price 
+       add constraint FKav0kwwop5rujt3q8i2qmcbhid 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-26T14:58:53.322+01:00  INFO 28396 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:58:53.459+01:00  INFO 28396 --- [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-26T14:58:53.995+01:00  WARN 28396 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T14:58:54.402+01:00  INFO 28396 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-26T14:58:55.451+01:00  INFO 28396 --- [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 62460 (http) with context path '/'
+2026-03-26T14:58:55.460+01:00  INFO 28396 --- [main] .ClientControllerIntegrationEndToEndTest : Started ClientControllerIntegrationEndToEndTest in 9.388 seconds (process running for 11.437)
+2026-03-26T14:58:56.286+01:00  INFO 28396 --- [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-26T14:58:56.287+01:00  INFO 28396 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-26T14:58:56.288+01:00  INFO 28396 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-26T14:58:56.863+01:00 DEBUG 28396 --- [http-nio-auto-1-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.mail,
+        c1_0.name,
+        c1_0.vip 
+    from
+        client c1_0 
+    where
+        c1_0.mail=?
+2026-03-26T14:58:56.868+01:00 TRACE 28396 --- [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [mail@mail.com]
+2026-03-26T14:58:56.943+01:00 DEBUG 28396 --- [http-nio-auto-1-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        client
+        (mail, name, vip, id) 
+    values
+        (?, ?, ?, ?)
+2026-03-26T14:58:56.945+01:00 TRACE 28396 --- [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [mail@mail.com]
+2026-03-26T14:58:56.945+01:00 TRACE 28396 --- [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [Name]
+2026-03-26T14:58:56.945+01:00 TRACE 28396 --- [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:BOOLEAN) <- [false]
+2026-03-26T14:58:56.946+01:00 TRACE 28396 --- [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:UUID) <- [a6726ce3-532a-4746-ad44-08457fcddbf2]
+2026-03-26T14:58:57.019+01:00  INFO 28396 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-26T14:58:57.027+01:00  INFO 28396 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-26T14:58:57.032+01:00  INFO 28396 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:58:57.034+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    set client_min_messages = WARNING
+2026-03-26T14:58:57.034+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists FK6pegnpt5v5wpj6ylffprmoti9
+2026-03-26T14:58:57.035+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists order_row_description 
+       drop constraint if exists FKokujq7ea93dh3nr3ulfk5pk97
+2026-03-26T14:58:57.036+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       drop constraint if exists FK17yo6gry2nuwg2erwhbaxqbs9
+2026-03-26T14:58:57.036+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       drop constraint if exists FKid41i0xx42ffsla3xd1ify6tr
+2026-03-26T14:58:57.036+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKmv0gc0fm7dpou43mp4sqjk40o
+2026-03-26T14:58:57.036+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKbmkay60qrmenad7mc32udtvab
+2026-03-26T14:58:57.037+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza_price 
+       drop constraint if exists FKav0kwwop5rujt3q8i2qmcbhid
+2026-03-26T14:58:57.038+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists client cascade
+2026-03-26T14:58:57.038+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists ingredient cascade
+2026-03-26T14:58:57.039+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists order_row_description cascade
+2026-03-26T14:58:57.040+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists orders cascade
+2026-03-26T14:58:57.040+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pizza cascade
+2026-03-26T14:58:57.041+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pizza_ingredients cascade
+2026-03-26T14:58:57.041+01:00 DEBUG 28396 --- [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pizza_price cascade
+2026-03-26T14:58:57.046+01:00  INFO 28396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-26T14:58:57.049+01:00  INFO 28396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-26T14:59:09.294+01:00  INFO 38332 --- [main] c.a.c.ClientControllerIntegrationTest    : Starting ClientControllerIntegrationTest using Java 25.0.1 with PID 38332 (started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-26T14:59:09.295+01:00  INFO 38332 --- [main] c.a.c.ClientControllerIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T14:59:12.241+01:00  INFO 38332 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-26T14:59:12.242+01:00  INFO 38332 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-26T14:59:12.246+01:00  INFO 38332 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-03-26T14:59:12.306+01:00  INFO 38332 --- [main] c.a.c.ClientControllerIntegrationTest    : Started ClientControllerIntegrationTest in 3.422 seconds (process running for 5.004)
+2026-03-26T14:59:18.320+01:00  INFO 34692 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-26T14:59:18.326+01:00  INFO 34692 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-26T14:59:18.330+01:00  INFO 34692 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:59:18.331+01:00  INFO 34692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-03-26T14:59:18.339+01:00  INFO 34692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-03-26T14:59:21.416+01:00  INFO 34240 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Starting GestionPizzeriaEnLigneApplication using Java 25.0.1 with PID 34240 (C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne\target\classes started by yohan.pedron in C:\Users\yohan.pedron\Documents\IntelliJ\gestion-pizzeria-en-ligne)
+2026-03-26T14:59:21.420+01:00  INFO 34240 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T14:59:21.480+01:00  INFO 34240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-26T14:59:21.480+01:00  INFO 34240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-26T14:59:22.478+01:00  INFO 34240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T14:59:22.540+01:00  INFO 34240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 3 JPA repository interfaces.
+2026-03-26T14:59:23.091+01:00  INFO 34240 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-26T14:59:23.118+01:00  INFO 34240 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-26T14:59:23.118+01:00  INFO 34240 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-26T14:59:23.168+01:00  INFO 34240 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1687 ms
+2026-03-26T14:59:23.342+01:00  INFO 34240 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-26T14:59:23.401+01:00  INFO 34240 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-26T14:59:23.812+01:00  INFO 34240 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T14:59:23.838+01:00  INFO 34240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-26T14:59:23.960+01:00  INFO 34240 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a66321f
+2026-03-26T14:59:23.962+01:00  INFO 34240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-26T14:59:23.987+01:00  WARN 34240 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T14:59:24.008+01:00  INFO 34240 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T14:59:24.986+01:00  INFO 34240 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T14:59:25.052+01:00  INFO 34240 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T14:59:25.126+01:00  INFO 34240 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-26T14:59:25.446+01:00  WARN 34240 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T14:59:25.680+01:00  INFO 34240 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-26T14:59:26.112+01:00  INFO 34240 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-26T14:59:26.158+01:00  INFO 34240 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-26T14:59:26.164+01:00  INFO 34240 --- [restartedMain] c.a.GestionPizzeriaEnLigneApplication    : Started GestionPizzeriaEnLigneApplication in 5.349 seconds (process running for 6.21)
