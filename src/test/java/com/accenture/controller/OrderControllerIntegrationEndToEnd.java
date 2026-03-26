@@ -35,7 +35,7 @@ import java.util.Map;
 @ActiveProfiles("test")
 class OrderControllerIntegrationEndToEndTest {
 
-    private static final String API_ORDER_ENDPOINT = "/order";
+    private static final String API_ORDER_ENDPOINT = "/orders";
 
     @LocalServerPort
     private int port;

@@ -33,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class OrderControllerIntegrationTest {
 
-    private static final String API_ORDER_ENDPOINT = "/order";
+    private static final String API_ORDER_ENDPOINT = "/orders";
 
     // Mock un serveur HTTP pour requêter sur notre serveur REST
     // C'est lui qui va appeler nos endpoints

@@ -28,7 +28,7 @@ import java.util.Map;
 @ActiveProfiles("test")
 class PizzaControllerIntegrationEndToEndTest {
 
-    private static final String API_PIZZA_ENDPOINT = "/pizza";
+    private static final String API_PIZZA_ENDPOINT = "/pizzas";
 
     @LocalServerPort
     private int port;

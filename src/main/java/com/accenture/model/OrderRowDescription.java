@@ -23,7 +23,7 @@ public class OrderRowDescription {
     private UUID id;
 
     /** Pizza included in this row. */
-    @OneToOne
+    @ManyToOne
     @JoinColumn
     private Pizza pizza;
 
